@@ -1,4 +1,4 @@
-INSERT INTO acccount(type,customerid,typeprofileaccount,commissionstatus,commissionamount,limittransaction,createat,updatedat,available) VALUES('ca', '20220818001', 'personal', false, 5, 20, NOW(), NOW(), 8000);
+INSERT INTO acccount(type,customerid,typeprofileaccount,commissionstatus,commissionamount,limittransaction,createat,updatedat,available) VALUES('ca', '20220002001', 'personal', false, 5, 20, NOW(), NOW(), 8000);
 INSERT INTO acccount(type,customerid,typeprofileaccount,commissionstatus,commissionamount,limittransaction,createat,updatedat,available) VALUES('ca', '20220818002', 'personal', false, 5, 20, NOW(), NOW(),  10000);
 INSERT INTO acccount(type,customerid,typeprofileaccount,commissionstatus,commissionamount,limittransaction,createat,updatedat,available) VALUES('ca', '20220818003', 'personal', false, 5, 20, NOW(), NOW(),  5000);
 INSERT INTO acccount(type,customerid,typeprofileaccount,commissionstatus,commissionamount,limittransaction,createat,updatedat,available) VALUES('ca', '20220818004', 'personal', false, 5, 20, NOW(), NOW(),  3000);

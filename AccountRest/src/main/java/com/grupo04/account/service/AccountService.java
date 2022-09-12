@@ -53,7 +53,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public Optional<Account> findById(Long id) {
-		return accountRepository.findById(id);
+		return accountRepository.findFirstByCustomerId(String.valueOf(id));
 	}
 
 	@Override
