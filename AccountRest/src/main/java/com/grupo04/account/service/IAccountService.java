@@ -13,6 +13,7 @@ public interface IAccountService {
     public List<Account> findAll();
     public Optional<Account> findById(Long id) ;
     public List<Account> findByCustomerId(String customerId);
+	public Optional<Account> findFirstByCustomerId(Long customerId);
     public Optional<Account> save(Account account);
     public void delete(Account account);
     public ResponseEntity<ResponseProducts> findProductsByDocument(String document);

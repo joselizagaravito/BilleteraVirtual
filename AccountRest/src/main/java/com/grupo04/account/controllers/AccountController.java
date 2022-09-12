@@ -29,11 +29,35 @@ public class AccountController {
 	@Autowired
 	private IAccountService accountService;
 
-	@GetMapping("/{numaccount}")
-	public ResponseEntity<ResponseAccounts> accounts(@PathVariable Long numaccount) {
+	@GetMapping("/{id}")
+	public ResponseEntity<ResponseAccounts> findById(@PathVariable Long id) {
 
 		String descripciontipo = "";
-		Optional<Account> opaccount = accountService.findById(numaccount);
+		Optional<Account> opaccount = accountService.findById(id);
+		String tipo = opaccount.get().getType();
+
+		log.info("Descripcion del tipo: " + tipo);
+		
+		if (tipo.equals("ca"))
+			descripciontipo = "CurrentAccount";
+		if (tipo.equals("ft"))
+			descripciontipo = "FixedTermSavingsAccount";
+		if (tipo.equals("sa"))
+			descripciontipo = "SavingsAccount";
+
+		if (opaccount.isPresent()) {
+			return ResponseEntity.ok().header("Cuenta: ", id.toString())
+					.body(new ResponseAccounts(opaccount.get(), true, descripciontipo));
+
+		} else {
+			return ResponseEntity.ok().header("Sin cuenta", id.toString()).body(null);
+		}
+	}
+	@GetMapping("numaccount/{numaccount}")
+	public ResponseEntity<ResponseAccounts> findByAccounts(@PathVariable String numaccount) {
+
+		String descripciontipo = "";
+		Optional<Account> opaccount = accountService.findFirstByCustomerId(Long.valueOf(numaccount));
 		String tipo = opaccount.get().getType();
 
 		log.info("Descripcion del tipo: " + tipo);
@@ -53,7 +77,6 @@ public class AccountController {
 			return ResponseEntity.ok().header("Sin cuenta", numaccount.toString()).body(null);
 		}
 	}
-
 	@GetMapping
 	public List<Account> listar(Model model) {
 		return accountService.findAll();

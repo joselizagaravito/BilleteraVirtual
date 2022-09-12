@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResponseAccounts {
 	
-	private Account savingsAccount;
-    private boolean isPresent;
+	private Account account;
+    private boolean present;
     private String typeAccount;
 
 }

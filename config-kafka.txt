@@ -1,0 +1,59 @@
+# Descargar
+
+https://kafka.apache.org/downloads
+
+
+# Archivos de Configuración
+
+## config\server.properties
+
+listeners=PLAINTEXT://127.0.0.1:9092
+
+log.dirs=F:/kafka_2.12-3.1.1/kafka-logs
+
+
+## config\zookeeper.properties
+
+dataDir=F:/kafka_2.12-3.1.1/zookeeper-data
+
+
+# Comando para iniciar Zookeeper y kafka
+
+## Unicarnos en la carpeta F:/kafka_2.12-3.1.1
+
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+## Para Crear topicos
+
+.\bin\windows\kafka-topics.bat --create --topic bootcamp-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
+.\bin\windows\kafka-topics.bat --create --topic test-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 4
+
+.\bin\windows\kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
+
+
+## Para ver la lista de los topicos creados
+
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+
+## Para crear Consumers y Producer
+
+### Topic: bootcamp-topic
+
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic bootcamp-topic
+
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic bootcamp-topic
+
+### Topic: TOPIC-DEMO
+
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic TOPIC-DEMO
+
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic TOPIC-DEMO
+
+
+
+

@@ -1,0 +1,22 @@
+Producer:Transaction
+Key:123489
+Value: {nummonedero:963852,typetransaction:ingreso,amount:200}
+Topic: tTransaction
+Group:Monedero
+-----------------------------
+Consumer: Monedero
+Group:Monedero
+Topic: tTransaction
+.....
+Ingreso: Agregar al Saldo
+Egreso: Restar del saldo
+Actualizar en BD y Redis
+-----------------------------
+-----------------------------
+Kafka comandos basicos
+zookeeper-server-start.bat C:\kafka_2.13-3.1.0\config\zookeeper.properties
+
+kafka-server-start.bat C:\kafka_2.13-3.1.0\config\server.properties
+
+kafka-topics.bat --bootstrap-server localhost:9092 --create --topic tTrasactional --partitions 2 --replication-factor 1
+

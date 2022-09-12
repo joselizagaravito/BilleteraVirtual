@@ -22,7 +22,6 @@
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
     <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
     <fullyQualifiedTypeName name="com.grupo08.card.repository.CardRepository"/>
     <fullyQualifiedTypeName name="reactor.core.publisher.Flux"/>
     <fullyQualifiedTypeName name="java.lang.Boolean"/>
@@ -33,4 +32,8 @@
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
     <fullyQualifiedTypeName name="com.grupo04.account.models.CustomerPersonal"/>
     <fullyQualifiedTypeName name="com.grupo04.account.models.CustomerBusiness"/>
+    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.kafka.annotation.KafkaListener"/>
+    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

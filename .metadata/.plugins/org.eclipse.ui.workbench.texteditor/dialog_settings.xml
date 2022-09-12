@@ -10,8 +10,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Card"/>
+		<item key="selection" value="service"/>
 		<list key="findhistory">
+			<item value="service"/>
+			<item value="RestTemplate"/>
 			<item value="CustomerBusiness"/>
 		</list>
 		<list key="replacehistory">

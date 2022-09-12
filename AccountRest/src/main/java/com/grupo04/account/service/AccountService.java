@@ -50,10 +50,14 @@ public class AccountService implements IAccountService {
 		log.info("prueba de findAll");
 		return accountRepository.findAll();
 	}
-
 	@Override
 	public Optional<Account> findById(Long id) {
-		return accountRepository.findFirstByCustomerId(String.valueOf(id));
+		return accountRepository.findById(id);
+	}
+	
+	@Override
+	public Optional<Account> findFirstByCustomerId(Long customerId) {
+		return accountRepository.findFirstByCustomerId(String.valueOf(customerId));
 	}
 
 	@Override
