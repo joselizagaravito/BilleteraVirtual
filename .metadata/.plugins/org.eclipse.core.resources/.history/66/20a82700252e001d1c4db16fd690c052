@@ -1,0 +1,5 @@
+package com.grupo08.card.service;
+
+public interface ICardService {
+
+}

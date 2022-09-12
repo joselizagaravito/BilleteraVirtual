@@ -1,0 +1,32 @@
+package com.grupo08.card.models;
+
+import java.time.LocalDate;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.grupo04.customer.models.CustomerPersonal;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "tarjetas")
+public class Card {
+	@Id
+	private String id;
+    @NonNull
+	private String PrincipalAccount;
+    private
+    @CreatedDate
+    private LocalDate createdAtDate;
+    @LastModifiedDate
+    private LocalDate updatedAt;
+    
+}

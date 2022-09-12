@@ -1,0 +1,15 @@
+package com.grupo04.account.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.grupo04.account.models.CurrentAccount;
+
+public interface ICurrentAccountService {
+
+    public List<CurrentAccount> findAll();
+    public Optional<CurrentAccount> findById(Long id) ;
+    public List<CurrentAccount> findByCustomerId(Long customerId);
+    public CurrentAccount save(CurrentAccount currentaccount);
+    public void delete(CurrentAccount currentaccount);
+}

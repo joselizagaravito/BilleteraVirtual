@@ -1,0 +1,5 @@
+INSERT INTO public.currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818002', NOW(), NOW(), 8000);
+INSERT INTO public.currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818001', NOW(), NOW(), 8000);
+INSERT INTO public.currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818002', NOW(), NOW(), 10000);
+INSERT INTO public.currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818003', NOW(), NOW(), 5000);
+INSERT INTO public.currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818004', NOW(), NOW(), 3000);

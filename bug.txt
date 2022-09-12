@@ -1,0 +1,9 @@
+AccountRest
+consultar parametro: numero de cuenta
+devolver: el objeto de  cuenta 
+actualizar el estado de una cuenta una cuenta.(numero de cuenta, comision estado)
+--------------------------------------------------
+
+tag por numero de documento
+703456456213
+asdflkajsdflasjdlfkja

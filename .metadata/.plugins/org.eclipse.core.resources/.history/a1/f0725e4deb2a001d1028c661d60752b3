@@ -1,0 +1,11 @@
+spring.application.name=service-account
+server.port=9010
+spring.jpa.database=postgresql
+spring.jpa.show-sql=false
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/account
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+customer.personal.url=http://localhost:9020/api/customerpersonal/;
+customer.business.url=http://localhost:9020/api/customerbusiness/;

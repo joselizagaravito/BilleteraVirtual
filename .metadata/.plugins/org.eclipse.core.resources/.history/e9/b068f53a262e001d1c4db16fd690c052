@@ -1,0 +1,14 @@
+package com.grupo08.card.service;
+
+import com.grupo08.card.models.Card;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+public interface ICardService {
+	public Flux<Card> findAll();
+    public Mono<Card> findById(String id);
+    public Flux<Boolean> findByNumdocument(String d);
+    public Mono<Card> save(Card c);
+    public Mono<Void> delete(Card c);
+}

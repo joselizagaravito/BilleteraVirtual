@@ -1,0 +1,5 @@
+package com.grupo08.card.controllers;
+
+public interface ICardService {
+
+}

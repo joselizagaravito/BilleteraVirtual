@@ -1,0 +1,8 @@
+package com.grupo08.card.repository;
+
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+
+import com.grupo08.card.models.Card;
+
+public interface CardBusinessRepository extends ReactiveMongoRepository<Card,String> {
+}

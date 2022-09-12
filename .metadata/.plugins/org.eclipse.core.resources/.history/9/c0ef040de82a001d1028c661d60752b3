@@ -1,0 +1,11 @@
+package com.grupo04.accountrest.repository;
+
+import com.grupo04.account.models.CurrentAccount;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ICurrentAccountRepository extends JpaRepository<CurrentAccount, Long> {
+	List<CurrentAccount> findByCustomerId(Long customerId);
+}

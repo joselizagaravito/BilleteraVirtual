@@ -1,0 +1,11 @@
+INSERT INTO currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818001', NOW(), NOW(), 8000);
+INSERT INTO currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818002', LocalDate.of(2019, Month.JULY, 20), LocalDate.now(), 10000);
+INSERT INTO currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818003', LocalDate.of(2019, Month.JULY, 21), LocalDate.now(), 5000);
+INSERT INTO currentacccount(type,customerid,createat,updatedat,available) VALUES('ca', '20220818004', LocalDate.of(2019, Month.JULY, 22), LocalDate.now(), 3000);
+INSERT INTO fixedtermsavingsaccount(type,customerid,createat,updatedat,available) VALUES('ft', '20220818005', LocalDate.of(2019, Month.JULY, 22), LocalDate.now(), 1000);
+INSERT INTO fixedtermsavingsaccount(type,customerid,createat,updatedat,available) VALUES('ft', '20220818006', LocalDate.of(2019, Month.JULY, 23), LocalDate.now(), 2000);
+INSERT INTO fixedtermsavingsaccount(type,customerid,createat,updatedat,available) VALUES('ft', '20220818007', LocalDate.of(2019, Month.JULY, 24), LocalDate.now(), 1500);
+INSERT INTO fixedtermsavingsaccount(type,customerid,createat,updatedat,available) VALUES('ft', '20220818008', LocalDate.of(2019, Month.JULY, 25), LocalDate.now(), 3000);
+INSERT INTO savingsaccount(type,customerid,createat,updatedat,available) VALUES('sa', '20220818005', LocalDate.of(2019, Month.JULY, 25), LocalDate.now(), 5000);
+INSERT INTO savingsaccount(type,customerid,createat,updatedat,available) VALUES('sa', '20220818002', LocalDate.of(2019, Month.JULY, 25), LocalDate.now(), 2000);
+INSERT INTO savingsaccount(type,customerid,createat,updatedat,available) VALUES('sa', '20220818006', LocalDate.of(2019, Month.JULY, 25), LocalDate.now(), 3000);

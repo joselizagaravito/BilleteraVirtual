@@ -1,0 +1,19 @@
+package com.grupo08.card.controllers;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.grupo08.card.models.Card;
+
+public interface ICardService {
+	public List<Card> listar(Model model);
+	public Optional<Card> detail(@PathVariable Long id);;
+	public Optional<Card> detailA(Long id);
+	public Optional<Card> detailB(Long id) ;
+	public ResponseEntity<Map<String, Object>> save( Card moncard) ;
+}

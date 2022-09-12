@@ -1,0 +1,90 @@
+package com.grupo08.card.controllers;
+
+import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Mono;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import com.grupo08.card.models.Card;
+import com.grupo08.card.service.ICardService;
+
+import java.net.URI;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+@RestController
+@RequestMapping
+@Slf4j
+public class CardController {
+
+	// @Autowired
+	// private CircuitBreakerFactory cbFactory;
+
+	@Autowired
+	private ICardService service;
+
+	@GetMapping
+	public List<Card> listar(Model model) {
+		return service.findAll().collectList().block();
+	}
+
+	@GetMapping("/{id}")
+	public Mono<Card> detail(@PathVariable String id) {
+		return service.findById(id);
+	}
+
+	public Mono<Card> detailA(String id) {
+		return service.findById(id);
+	}
+
+	public Mono<Card> detailB(String id) {
+		return service.findById(id);
+	}
+
+	@PostMapping("/save")
+	public ResponseEntity<Map<String, Object>> save(@RequestBody Card monoCard) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		log.info(monoCard.toString());
+
+		Card p = service.save(monoCard).block();
+		if (p.getId() == null) {
+			result.put("Current Account", monoCard.getCurrentaccount());
+			result.put("Document", monoCard.getNumdocument());
+			result.put("message", "No se genero la cuenta");
+			result.put("status", true);
+			result.put("message", "Cuenta corriente guardada con éxito");
+			return ResponseEntity.created(URI.create("/api/savings/".concat(p.getId().toString())))
+					.contentType(MediaType.APPLICATION_JSON).body(result);
+		}
+
+	}
+
+	@GetMapping("/find/{customerid}")
+	public List<Card> findByCustomer(@PathVariable String customerid) {
+		List<Card> accounts = service.findByCustomerId(customerid);
+		return accounts;
+	}
+
+	@PutMapping("/{id}")
+	public Card edit(@RequestBody Card savings, @PathVariable Long id) {
+		Card p = service.findById(id).get();
+		p.setAvailableBalance(savings.getAvailableBalance());
+		p.setUpdatedAt(LocalDate.now());
+		return service.save(p).get();
+	}
+
+	@DeleteMapping("/{id}")
+	public void edit(@PathVariable Long id) {
+		Card p = service.findById(id).get();
+		service.delete(p);
+	}
+
+}
