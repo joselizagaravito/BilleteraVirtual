@@ -57,7 +57,7 @@ public class AccountController {
 	public ResponseEntity<ResponseAccounts> findByAccounts(@PathVariable String numaccount) {
 
 		String descripciontipo = "";
-		Optional<Account> opaccount = accountService.findFirstByCustomerId(Long.valueOf(numaccount));
+		Optional<Account> opaccount = accountService.findFirstByNumaccount(numaccount);
 		String tipo = opaccount.get().getType();
 
 		log.info("Descripcion del tipo: " + tipo);

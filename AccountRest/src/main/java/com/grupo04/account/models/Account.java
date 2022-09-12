@@ -29,6 +29,8 @@ public class Account{
     @NotBlank(message ="Account.customerId no debe ser blanco")
     @Column(name="customerid")
     private String customerId;
+    @Column(name="numaccount")
+    private String numaccount;
     @Column(name="typeprofileaccount")
     private String typeProfileAccount;
     @Column(name="commissionstatus")

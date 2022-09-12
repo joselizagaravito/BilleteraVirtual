@@ -14,6 +14,7 @@ public class Account {
 	private Long id;
     private String type;
     private String customerId;
+    private String numaccount;
     private String typeProfileAccount;
     private boolean commissionStatus;
     private double commissionAmount;

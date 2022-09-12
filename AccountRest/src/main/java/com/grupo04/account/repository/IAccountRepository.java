@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface IAccountRepository extends JpaRepository<Account, Long> {
 	List<Account> findByCustomerId(String customerId);
-	Optional<Account> findFirstByCustomerId(String customerId);
+	Optional<Account> findFirstByNumaccount(String numaccount);
 }

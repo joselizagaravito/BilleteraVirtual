@@ -28,10 +28,10 @@ class CurrentAccountServiceTest {
 		mockitoRepository = mock(IAccountRepository.class);
 		service = new AccountService(mockitoRepository);
 		listaMockito = Arrays.asList(
-				new Account(1L, "ca", "123", "personal", false, 5, 20, LocalDate.of(2022, 01, 01), LocalDate.of(2022, 01, 01), 1000f),
-				new Account(2L, "ca", "124", "personal", false, 5, 20, LocalDate.of(2022, 01, 02), LocalDate.of(2022, 01, 02), 1500f),
-				new Account(1L, "ca", "125", "personal", false, 5, 20, LocalDate.of(2022, 01, 01), LocalDate.of(2022, 01, 03), 1600f),
-				new Account(2L, "ca", "126", "personal", false, 5, 20, LocalDate.of(2022, 01, 02), LocalDate.of(2022, 01, 04), 1700f));
+				new Account(1L, "ca", "123","345435435", "personal", false, 5, 20, LocalDate.of(2022, 01, 01), LocalDate.of(2022, 01, 01), 1000f),
+				new Account(2L, "ca", "124","345435436", "personal", false, 5, 20, LocalDate.of(2022, 01, 02), LocalDate.of(2022, 01, 02), 1500f),
+				new Account(1L, "ca", "125","345435437", "personal", false, 5, 20, LocalDate.of(2022, 01, 01), LocalDate.of(2022, 01, 03), 1600f),
+				new Account(2L, "ca", "126","345435438", "personal", false, 5, 20, LocalDate.of(2022, 01, 02), LocalDate.of(2022, 01, 04), 1700f));
 
 	}
 	
@@ -51,7 +51,7 @@ class CurrentAccountServiceTest {
 		
 		when(mockitoRepository.findById(2L)).thenReturn(Optional.of(listaMockito.get(0)));
 
-		Account current = new Account(1L, "ca", "123", "personal", false, 5, 20, LocalDate.of(2022, 01, 01),
+		Account current = new Account(1L, "ca", "123","345435435", "personal", false, 5, 20, LocalDate.of(2022, 01, 01),
 				LocalDate.of(2022, 01, 01), 1000f);
 		Optional<Account> expected = Optional.of(current);
 		Optional<Account> actual = service.findById(2L);

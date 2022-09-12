@@ -28,7 +28,9 @@ public class TransactionService implements ITransactionService {
 	private RestTemplate clientRest;
 
 	private final WebClient webClient;
-	private TransactionProducer producer;
+
+	//@Autowired
+	private final TransactionProducer producer;
 
 	@Value("${account.url}")
 	private String urlAccount;
@@ -36,7 +38,8 @@ public class TransactionService implements ITransactionService {
 	@Value("${card.url}")
 	private String urlc;
 
-	public TransactionService(WebClient.Builder webBuilder) {
+	public TransactionService(WebClient.Builder webBuilder, TransactionProducer producer) {
+		this.producer=producer;
 		this.webClient = webBuilder.baseUrl("http://localhost:9040/card/").build();
 	}
 
@@ -53,9 +56,10 @@ public class TransactionService implements ITransactionService {
 	@Override
 	public Mono<Transaction> save(Transaction transaction) {
 
+		producer.sendMessage("primera linea ");
 		ResponseAccounts responseAccount = getAccount(transaction.getSourceAccount());
-		System.out.println("valor de responseAccount: " +responseAccount);
-		
+		System.out.println("valor de responseAccount: " + responseAccount);
+
 		Long counterTransaction = countTransactionInActualMonth(transaction.getSourceAccount());
 
 		if (responseAccount.isPresent()) {
@@ -73,20 +77,20 @@ public class TransactionService implements ITransactionService {
 				}
 				accountResult.setAvailableBalance(accountResult.getAvailableBalance() - newAmount);
 				targetAccount.setAvailableBalance(targetAccount.getAvailableBalance() + newAmount);
-				
+
 				System.out.println(urlAccount.concat(accountResult.getId().toString()));
 				System.out.println(urlAccount.concat(targetAccount.getId().toString()));
 				System.out.println("accountResult:" + accountResult.toString());
 				System.out.println("targetAccount:" + targetAccount.toString());
-				
+
 				clientRest.put(urlAccount.concat(accountResult.getId().toString()), accountResult);
 				clientRest.put(urlAccount.concat(targetAccount.getId().toString()), targetAccount);
 
 				// transaction.setType("Retiro");
 				transaction.setDate(LocalDateTime.now());
 				Mono<Transaction> result = repository.save(transaction);
-				String id = result.block().getId();
-				producer.sendMessage(id, transaction);
+				System.out.println("result: " + result);
+				producer.sendMessage("para transaction");
 				return result;
 			}
 		}

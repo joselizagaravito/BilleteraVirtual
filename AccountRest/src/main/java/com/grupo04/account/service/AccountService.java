@@ -56,8 +56,8 @@ public class AccountService implements IAccountService {
 	}
 	
 	@Override
-	public Optional<Account> findFirstByCustomerId(Long customerId) {
-		return accountRepository.findFirstByCustomerId(String.valueOf(customerId));
+	public Optional<Account> findFirstByNumaccount(String numaccount) {
+		return accountRepository.findFirstByNumaccount(numaccount);
 	}
 
 	@Override
@@ -88,6 +88,10 @@ public class AccountService implements IAccountService {
 					|| account.getTypeProfileAccount().equalsIgnoreCase("business")) {
 				return Optional.of(accountRepository.save(account));
 			}
+		}
+		
+		if(p.getId()!=null) {
+			return Optional.of(accountRepository.save(account));
 		}
 
 		return Optional.of(null);
