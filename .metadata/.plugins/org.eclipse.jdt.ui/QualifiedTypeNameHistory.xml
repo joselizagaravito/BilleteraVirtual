@@ -31,4 +31,6 @@
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="reactor.core.publisher.Mono"/>
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
+    <fullyQualifiedTypeName name="com.grupo04.account.models.CustomerPersonal"/>
+    <fullyQualifiedTypeName name="com.grupo04.account.models.CustomerBusiness"/>
 </qualifiedTypeNameHistroy>
